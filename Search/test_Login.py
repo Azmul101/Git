@@ -2,7 +2,7 @@ import pytest
 
 from Git.Config.config import TestData
 from Git.Pages.LoginPage import Login
-from Git.Search.test_Base import BaseTest
+from Git.Search.Configtest import BaseTest
 
 
 class TestLogin(BaseTest):

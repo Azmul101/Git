@@ -3,12 +3,16 @@ from selenium import webdriver
 from Git.Config.config import TestData
 
 
-@pytest.fixture(params=["chrome, firefox"], scope='class')
-def init_driver(request):
-    if request.params == "chrome":
-        web_driver = webdriver.Chrome(executable_path=TestData.Ch_exe_path)
-    if request.params == "firefox":
-        web_driver = webdriver.Firefox(executable_path=TestData.Fi_exe_path)
+@pytest.fixture(scope="class")
+def driver_init(request):
+    web_driver = webdriver.Chrome(executable_path=TestData.Ch_exe_path)
     request.cls.driver = web_driver
     yield
     web_driver.close()
+
+
+@pytest.mark.usefixtures("driver_init")
+class BaseTest:
+    pass
+
+
