@@ -10,6 +10,5 @@ def init_driver(request):
     if request.params == "firefox":
         web_driver = webdriver.Firefox(executable_path=TestData.Fi_exe_path)
     request.cls.driver = web_driver
-    web_driver.implicitly_wait(50)
     yield
     web_driver.close()
