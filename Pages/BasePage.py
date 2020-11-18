@@ -19,7 +19,7 @@ class Base:
         element = WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator))
         return element.text
 
-    def is_enabled(self, by_locator):
+    def is_visible(self, by_locator):
         element = WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator))
         return bool(element)
 

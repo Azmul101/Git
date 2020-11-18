@@ -3,7 +3,7 @@ from selenium import webdriver
 from Git.Config.config import TestData
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(params=["chrome"], scope='class')
 def driver_init(request):
     web_driver = webdriver.Chrome(executable_path=TestData.Ch_exe_path)
     request.cls.driver = web_driver

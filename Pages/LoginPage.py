@@ -13,9 +13,9 @@ class Login(Base):
     # Construcor of the page class
 
     def __init__(self, driver):
-       super().__init__(driver)
-       self.driver.get(TestData.Base_url)
-
+        super().__init__(driver)
+        self.driver = driver
+        self.driver.get(TestData.Base_url)
     # Page Action for login Page
 
     # this is used to get the page title
@@ -35,5 +35,3 @@ class Login(Base):
         self.do_send_keys(self.Password, password)
         self.do_click(self.Login_button)
 
-    def is_visible(self, SignUp_link):
-        pass
